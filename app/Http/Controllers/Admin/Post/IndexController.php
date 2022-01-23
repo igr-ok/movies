@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Post;
 
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $categories = Category::all();
-       return view('admin.categories.index', compact('categories'));
+        $posts = Post::all();
+       return view('admin.post.index', compact('posts'));
 
     }
 

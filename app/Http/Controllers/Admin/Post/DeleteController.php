@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\UpdateRequest;
-use App\Models\Category;
+use App\Models\Post;
 
 
-class DeleteController extends Controller
+class DeleteController extends BaseController
 {
-    public function __invoke(Category $category)
+    public function __invoke(Post $post)
     {
 
-        $category->delete();
-       return redirect()->route('admin.category.index');
+        $post->delete();
+       return redirect()->route('admin.post.index');
 
     }
 

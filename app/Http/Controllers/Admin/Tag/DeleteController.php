@@ -5,15 +5,18 @@ namespace App\Http\Controllers\Admin\Tag;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
+use App\Models\Tag;
+
+//how about use tag?
 
 
 class DeleteController extends Controller
 {
-    public function __invoke(Category $category)
+    public function __invoke(Tag $tag)
     {
 
-        $category->delete();
-       return redirect()->route('admin.category.index');
+        $tag->delete();
+       return redirect()->route('admin.tag.index');
 
     }
 

@@ -14,7 +14,8 @@ class AddSoftDeletesToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            //dobavlaem soft delete v posts table
+            $table->softDeletes();
         });
     }
 
@@ -26,7 +27,11 @@ class AddSoftDeletesToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            //tut dropaem
+            $table->dropSoftDeletes();
         });
     }
+
+
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Admin\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -26,7 +26,19 @@ class UpdateRequest extends FormRequest
     {
         return [
             //tipa facecontrol
-            'title' => 'required|string'
+            //tipa facecontrol //chtobi iz summernote v adminke vse doshlo do kontrollera pishem zdes
+            'title' => 'required|string',
+            'content' => 'required|string',
+            'preview_image' => 'nullable|file',
+            'main_image' => 'nullable|file',
+
+            //prishli dobavlat nignuu striku posle dobavlenia v blade foreach dla categoriy
+            //posle strelki eto pravila kriterii dla prihodashhego shtob proshla validaciya
+            //proverka budet v tablice categories
+            'category_id' => 'required|integer|exists:categories,id',
+            'tag_ids' => 'nullable|array',
+            'tag_ids.*' => 'nullable|integer|exists:tags,id',
+            //teper idem v storcontroller
         ];
     }
 }

@@ -5,21 +5,17 @@ namespace App\Http\Controllers\Admin\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Service\PostService;
 
+//posle sozdania klassa postservice sozdali etot base controller
 
-class CreateController extends Controller
+class BaseController extends Controller
 {
-    public function __invoke()
-    {
-        //dobavlaem vozm davat postam categorii
-        $categories = Category::all();
+    public $service;
 
-        //chtobi v create.blade prihodili realn tegi pishem nije eto
-        $tags = Tag::all();
-
-       return view('admin.post.create', compact('categories', 'tags'));
-       //teper idem delaem foreach v create.blade
-
+    public function __construct(PostService $service){
+        //proizvodim inicializaciu
+        $this->service = $service;
     }
 
 }

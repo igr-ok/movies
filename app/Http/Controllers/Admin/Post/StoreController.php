@@ -1,22 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Category;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\StoreRequest;
+use App\Http\Requests\Admin\Post\StoreRequest; //nado pereopredelit - prihodit ot kategoriy
 use App\Models\Category;
+use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-        //prover prihodit chto to ili net - teper mojno ukaz v form acrion v createblade
-        $data = $request->validated();
-        //eto dla bazi esli po pervomu massivu ne nahodit deistvuet po vtoromu esli net dop atrib obhodimsa odnim massivom
-        // mojno prosto firstOrCreate($data);
-        Category::firstOrCreate([ 'title' => $data['title']]);
+        //vipolnaetsa rabota vzaimod s bazoy i ----
+        //pishu posle updatecontroller
+        //!!5)obrabativaem zapros
+        $data = $request->validated(); //data ranshe bila na 6 strok nije - eto obrabotka eto zona http
+        //eto dobavili dla basecontrollera
+        //!!6)proish vzaim s bazoy
+        $this->service->store($data);
+        //zavorachivaem v tranzakciu vse chto delali s privyazkoy tegov i ne tolko
 
-       return redirect()->route('admin.category.index');
+        //---i perehodim na admin.post.index
+        //!!7)vozvr otvet
+        return redirect()->route('admin.post.index');
 
     }
 

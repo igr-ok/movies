@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Models\Category;
+//use App\Http\Requests\Admin\Category\StoreRequest;
+use App\Http\Requests\Admin\Tag\StoreRequest;
+use App\Models\Tag;
 
 class StoreController extends Controller
 {
@@ -14,9 +15,9 @@ class StoreController extends Controller
         $data = $request->validated();
         //eto dla bazi esli po pervomu massivu ne nahodit deistvuet po vtoromu esli net dop atrib obhodimsa odnim massivom
         // mojno prosto firstOrCreate($data);
-        Category::firstOrCreate([ 'title' => $data['title']]);
+        Tag::firstOrCreate([ 'title' => $data['title']]);
 
-       return redirect()->route('admin.category.index');
+       return redirect()->route('admin.tag.index');
 
     }
 
