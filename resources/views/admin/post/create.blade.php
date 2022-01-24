@@ -26,16 +26,16 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-12">
-{{--                    enctype vkonce nuje chtobi images prihodili ni kak stringovie oboznachenia a kak faili--}}
+
                     <form action="{{ route('admin.post.store') }}" method="POST" enctype="multipart/form-data">
-{{--                        esli post to doljen byt @csrf--}}
+
                         @csrf
                         <div class="form-group w-25">
-{{--                            v request napisali chto jdem name title, poetomu ukaz name--}}
+
                             <input type="text" class="form-control" name="title" placeholder="Название поста"
                             value="{{ old('title') }}"
                             >
-{{--                            eto budet pokazivatsa kogda budet error--}}
+
                             @error('title')
                             <div class="text-danger">Заполните поле</div>
                             @enderror
@@ -96,7 +96,7 @@
                             <label>Тэги</label>
                             <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
                                 @foreach($tags as $tag)
-{{--                                    v skobkakh chto to vrode if else eto dla nekorrektnih pustih poley--}}
+
                                 <option {{ is_array( old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                 @endforeach
                             </select>

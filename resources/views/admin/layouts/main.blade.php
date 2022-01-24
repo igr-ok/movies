@@ -44,7 +44,7 @@
     <!-- /.navbar -->
 
     @include('admin.includes.sidebar')
-    {{-- вырезали content wrapper в index.blade.php, а сюда вставляем yeld--}}
+
     @yield('content')
 
     <footer class="main-footer">

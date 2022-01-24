@@ -27,15 +27,15 @@
             <div class="row">
                 <div class="col-12">
                     <form action="{{ route('admin.post.update', $post->id) }}" method="POST" enctype="multipart/form-data">
-{{--                        esli post to doljen byt @csrf--}}
+
                         @csrf
                         @method('Patch')
                         <div class="form-group w-25">
-                            {{--                            v request napisali chto jdem name title, poetomu ukaz name--}}
+
                             <input type="text" class="form-control" name="title" placeholder="Название поста"
                                    value="{{ $post->title }}"
                             >
-                            {{--                            eto budet pokazivatsa kogda budet error--}}
+
                             @error('title')
                             <div class="text-danger">Заполните поле</div>
                             @enderror
@@ -51,7 +51,7 @@
                         <div class="form-group w-50">
                             <label for="exampleInputFile">Добавить превью</label>
                             <div class="w-50 mb-2">
-{{--                                public path nujen chtobi izobrajenia bili dostupni vezde--}}
+
                                 <img src="{{ asset('storage/' . $post->preview_image) }}" alt="preview_image" class="w-50">
                             </div>
                             <div class="input-group">
@@ -103,8 +103,7 @@
                             <label>Тэги</label>
                             <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
                                 @foreach($tags as $tag)
-                                    {{--                                    v skobkakh chto to vrode if else eto dla nekorrektnih pustih poley--}}
-{{--                                zarezerv metod toarray privodit collekcii k massivam--}}
+
                                     <option {{ is_array( $post->tags->pluck('id')->toArray() ) && in_array($tag->id, $post->tags->pluck('id')->toArray() ) ? ' selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                 @endforeach
                             </select>

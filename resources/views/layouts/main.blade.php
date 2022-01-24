@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movies</title>
-{{--    asset() помогает искать путь, обязательно начиная с public--}}
+
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }} ">
@@ -19,7 +19,7 @@
 <header class="edica-header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
-{{--            <a class="navbar-brand" href="index.html"><img src="{{ 'assets/images/logo.svg' }}" alt="Edica"></a>--}}
+
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,24 +41,13 @@
 
 @yield('content')
 
-<section class="edica-footer-banner-section">
-    <div class="container">
-{{--        <div class="footer-banner" data-aos="fade-up">--}}
-{{--            <h1 class="banner-title">Download it now.</h1>--}}
-{{--            <div class="banner-btns-wrapper">--}}
-{{--                <button class="btn btn-success"> <img src="{{ 'assets/images/apple@1x.svg' }}" alt="ios" class="mr-2"> App Store</button>--}}
-{{--                <button class="btn btn-success"> <img src="{{ 'assets/images/android@1x.svg' }}" alt="android" class="mr-2"> Google Play</button>--}}
-{{--            </div>--}}
-{{--            <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>--}}
-{{--        </div>--}}
-    </div>
-</section>
+
 <footer class="edica-footer" data-aos="fade-up">
     <div class="container">
         <div class="row footer-widget-area">
             <div class="col-md-3">
                 <a href="index.html" class="footer-brand-wrapper">
-{{--                    <img src="{{ '' }}" alt="logo">--}}
+
                 </a>
                 <p class="contact-details">lfsvrgd@gmail.com</p>
                 <p class="contact-details">+7 926 751 24 88</p>
@@ -89,21 +78,7 @@
                     <a href="#!" class="nav-link">Pricing</a>
                 </nav>
             </div>
-{{--            <div class="col-md-3">--}}
-{{--                <div class="dropdown footer-country-dropdown">--}}
-{{--                    <button class="btn btn-secondary dropdown-toggle" type="button" id="footerCountryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                        <span class="flag-icon flag-icon-gb flag-icon-squared"></span> United Kingdom <i class="fas fa-chevron-down ml-2"></i>--}}
-{{--                    </button>--}}
-{{--                    <div class="dropdown-menu" aria-labelledby="footerCountryDropdown">--}}
-{{--                        <button class="dropdown-item" href="#">--}}
-{{--                            <span class="flag-icon flag-icon-us flag-icon-squared"></span> United States--}}
-{{--                        </button>--}}
-{{--                        <button class="dropdown-item" href="#">--}}
-{{--                            <span class="flag-icon flag-icon-au flag-icon-squared"></span> Australia--}}
-{{--                        </button>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+
         </div>
         <div class="footer-bottom-content">
             <nav class="nav footer-bottom-nav">
@@ -115,10 +90,10 @@
         </div>
     </div>
 </footer>
-<script src="{{ 'assets/vendors/popper.js/popper.min.js' }}"></script>
-<script src="{{ 'assets/vendors/bootstrap/dist/js/bootstrap.min.js' }}"></script>
-<script src="{{ 'assets/vendors/aos/aos.js' }}"></script>
-<script src="{{ 'assets/js/main.js' }}"></script>
+<script src="{{ asset('assets/vendors/popper.js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 <script>
     AOS.init({
         duration: 1000

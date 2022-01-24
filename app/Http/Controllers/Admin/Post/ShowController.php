@@ -9,7 +9,7 @@ use App\Models\Post;
 
 class ShowController extends BaseController
 {
-    //tak ka mi napisali v route /category, eto oznach chto v argum avtomattich categ.
+
     public function __invoke(Post $post)
     {
 

@@ -13,7 +13,7 @@ class StoreRequest extends FormRequest
      */
     public function authorize()
     {
-//        posle sozd menyaem na true, inache ne zarab
+
         return true;
     }
 
@@ -25,19 +25,17 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //tipa facecontrol //chtobi iz summernote v adminke vse doshlo do kontrollera pishem zdes
+
             'title' => 'required|string',
             'content' => 'required|string',
             'preview_image' => 'required|file',
             'main_image' => 'required|file',
 
-            //prishli dobavlat nignuu striku posle dobavlenia v blade foreach dla categoriy
-            //posle strelki eto pravila kriterii dla prihodashhego shtob proshla validaciya
-            //proverka budet v tablice categories
+
             'category_id' => 'required|integer|exists:categories,id',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'nullable|integer|exists:tags,id',
-            //teper idem v storcontroller
+
         ];
     }
 }

@@ -6,19 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Tag;
 
-//posle sozd base controller extendim vse classi ne ot controller a ot basecontr..
+
 class CreateController extends BaseController
 {
     public function __invoke()
     {
-        //dobavlaem vozm davat postam categorii
+
         $categories = Category::all();
 
-        //chtobi v create.blade prihodili realn tegi pishem nije eto
         $tags = Tag::all();
 
        return view('admin.post.create', compact('categories', 'tags'));
-       //teper idem delaem foreach v create.blade
+
 
     }
 
